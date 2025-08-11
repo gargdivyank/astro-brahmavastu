@@ -11,8 +11,8 @@ const FooterCTA: React.FC = () => (
     <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
       <div className="flex flex-col items-start ">
         <span className="text-2xl md:text-3xl font-bold text-white mr-2">
-          Free
-          <span className="text-sm md:text-base font-normal text-white/80 ml-2 align-middle">(Limited Seats)</span>
+          
+          <span className="text-lg md:text-lg font-normal text-white/80 ml-2 align-middle">(Limited Seats)</span>
         </span>
         <span className="italic text-white/90 text-base md:text-lg mt-1">
           Join Brahmavastu.g1 webinar
@@ -20,6 +20,7 @@ const FooterCTA: React.FC = () => (
       </div>
       {/* <span className="text-white/70 md:ml-2">(Limited Seats)</span> */}
     </div>
+    
     <button
       className="
         mt-4 md:mt-0
@@ -30,13 +31,10 @@ const FooterCTA: React.FC = () => (
         focus:outline-none focus:ring-2 focus:ring-[#FFC82B]
       "
       onClick={() => {
-        const target = document.getElementById('registration');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        window.location.href = "/PaymentPage";
       }}
     >
-      Reserve My Free Spot Now
+      Reserve My Spot Now <span className="text-green-500"> ₹1 /-</span>
     </button>
   </footer>
 );

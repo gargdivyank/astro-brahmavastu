@@ -51,13 +51,10 @@ const Footer = () => {
               boxShadow: "0 8px 24px -8px #F6C94566"
             }}
             onClick={() => {
-              const target = document.getElementById('registration');
-              if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-              }
+              window.location.href = "/PaymentPage";
             }}
           >
-            SECURE MY FREE SPOT NOW
+            SECURE MY SPOT NOW
           </Button>
           <div className="flex flex-wrap justify-center gap-2">
             <Badge

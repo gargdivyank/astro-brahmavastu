@@ -1,245 +1,142 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
-import { UserPlus, Mail, Phone, Briefcase, AlertCircle } from "lucide-react";
-import axios from "axios";
-import { BASE_URL } from "@/utils/config";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Star, Quote, Users, TrendingUp, Award, Calendar, Clock, CheckCircle } from "lucide-react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    profession: "",
-    problem: ""
-  });
-  const { toast } = useToast();
-  const navigate = useNavigate();
-
-
-
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  if (!formData.fullName || !formData.email || !formData.phone) {
-    toast({
-      title: "Please fill required fields",
-      description: "Name, email, and phone are required to register.",
-      variant: "destructive"
-    });
-    return;
-  }
-
-  try {
-    // Replace the URL below with your actual backend API endpoint!
-    const payload = {
-      name: formData.fullName,
-      email: formData.email,
-      phone: formData.phone,
-      profession: formData.profession,
-      problem: formData.problem
-    };
-    const response = await axios.post(`${BASE_URL}/api/v1/leads/add-and-send-otp`, payload);
-    console.log("response:",response);
-
-    if (response.data.success) {
-      // toast({
-      //   title: "Registration Successful! 🎉",
-      //   description: "You'll receive the Zoom link via email soon.",
-      // });
-      navigate('/thankyou');
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        profession: "",
-        problem: ""
-      });
-    } else {
-      toast({
-        title: "Registration Failed",
-        description: response.data.message || "Something went wrong.",
-        variant: "destructive"
-      });
+  const testimonials = [
+    {
+      name: "Priya Sharma",
+      profession: "Software Engineer",
+      content: "After following the kundali analysis, my career took a complete U-turn. I got promoted within 3 months!",
+      rating: 5,
+      problem: "Career Issues"
+    },
+    {
+      name: "Rajesh Kumar",
+      profession: "Business Owner",
+      content: "The financial guidance based on my kundali helped me make the right investments. My business grew 200%!",
+      rating: 5,
+      problem: "Financial Problems"
+    },
+    {
+      name: "Meera Patel",
+      profession: "Homemaker",
+      content: "My family's peace improved dramatically after implementing the suggested remedies. Highly recommended!",
+      rating: 5,
+      problem: "Family Peace"
     }
-  } catch (err) {
-    toast({
-      title: "Network or Server Error",
-      description: "Could not submit registration. Please try again.",
-      variant: "destructive"
-    });
-    console.error(err);
-  }
-};
+  ];
 
+  const successMetrics = [
+    { icon: Users, label: "Happy Clients", value: "10,000+" },
+    { icon: TrendingUp, label: "Success Rate", value: "94%" },
+    { icon: Award, label: "Years Experience", value: "15+" },
+    { icon: CheckCircle, label: "Problems Solved", value: "50,000+" }
+  ];
 
   return (
     <div id="registration" className="relative py-16" style={{
       background: "linear-gradient(to bottom, #1A0823 0%, #50046E 100%)"
     }}>
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
-            {/* Form Section */}
-            <Card className="bg-white/95 backdrop-blur-sm border-cosmic-gold/30 shadow-cosmic-glow">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl text-cosmic-purple-dark mb-2">
-                  Unlock your Kundli's 100% potential
-                </CardTitle>
-                <p className="text-cosmic-purple">
-                  Free registration – fill in your details to book your spot!
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="fullName" className="text-cosmic-purple-dark font-semibold">
-                        Your Full Name *
-                      </Label>
-                      <div className="relative">
-                        <UserPlus className="absolute left-3 top-3 h-4 w-4 text-cosmic-purple" />
-                        <Input
-                          id="fullName"
-                          placeholder="Full Name"
-                          value={formData.fullName}
-                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                          className="pl-10 border-cosmic-purple/30 focus:border-cosmic-purple"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-cosmic-purple-dark font-semibold">
-                        Your Email *
-                      </Label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 h-4 w-4 text-cosmic-purple" />
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="Your Email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="pl-10 border-cosmic-purple/30 focus:border-cosmic-purple"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-cosmic-purple-dark font-semibold">
-                      Phone *
-                    </Label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-3 h-4 w-4 text-cosmic-purple" />
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+91 Phone"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="pl-10 border-cosmic-purple/30 focus:border-cosmic-purple"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="profession" className="text-cosmic-purple-dark font-semibold">
-                      Profession
-                    </Label>
-                    <div className="relative">
-                      <Briefcase className="absolute left-3 top-3 h-4 w-4 text-cosmic-purple z-10" />
-                      <Select value={formData.profession} onValueChange={(value) => setFormData({ ...formData, profession: value })}>
-                        <SelectTrigger className="pl-10 border-cosmic-purple/30 focus:border-cosmic-purple">
-                          <SelectValue placeholder="Select" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="student">Student</SelectItem>
-                          <SelectItem value="professional">Working Professional</SelectItem>
-                          <SelectItem value="business">Business Owner</SelectItem>
-                          <SelectItem value="homemaker">Homemaker</SelectItem>
-                          <SelectItem value="retired">Retired</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="problem" className="text-cosmic-purple-dark font-semibold">
-                      Problem you're facing?
-                    </Label>
-                    <div className="relative">
-                      <AlertCircle className="absolute left-3 top-3 h-4 w-4 text-cosmic-purple z-10" />
-                      <Select value={formData.problem} onValueChange={(value) => setFormData({ ...formData, problem: value })}>
-                        <SelectTrigger className="pl-10 border-cosmic-purple/30 focus:border-cosmic-purple">
-                          <SelectValue placeholder="Select" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="career">Career Issues</SelectItem>
-                          <SelectItem value="health">Health Problems</SelectItem>
-                          <SelectItem value="relationships">Relationship Issues</SelectItem>
-                          <SelectItem value="financial">Financial Problems</SelectItem>
-                          <SelectItem value="family">Family Peace</SelectItem>
-                          <SelectItem value="general">General Guidance</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <Button type="submit" variant="cosmic" size="lg" className="w-full">
-                    Reserve My Free Spot Now
-                  </Button>
-
-                  <p className="text-xs text-cosmic-purple text-center">
-                    * Required fields. Your information is secure and will only be used for this webinar.
-                  </p>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Video/Testimonial Section */}
-            <div className="space-y-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cosmic-gold/30">
-                <h3 className="text-white text-xl font-bold mb-4 text-center">
-                  Watch What You'll Learn
-                </h3>
-                <div className="aspect-video bg-cosmic-purple-dark rounded-lg overflow-hidden">
-  <iframe
-    className="w-full h-full"
-    src="https://www.youtube.com/embed/jYpykdbVf4Q"
-    title="Watch What You'll Learn - Scientific Kundali Analysis"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
-
-              </div>
-
-              <div className="bg-cosmic-gold/10 backdrop-blur-sm rounded-xl p-6 border border-cosmic-gold/30">
-                <h4 className="text-cosmic-gold text-lg font-bold mb-3">Limited Seats!</h4>
-                <p className="text-white mb-4">
-                  Join 1000+ people who have already transformed their lives through scientific kundali analysis.
-                </p>
-                <div className="flex justify-between text-sm">
-                  <span className="text-white">Registered:</span>
-                  <span className="text-cosmic-gold font-bold">847/1000</span>
-                </div>
-                <div className="w-full bg-cosmic-purple-dark rounded-full h-2 mt-2">
-                  <div className="bg-cosmic-gold h-2 rounded-full" style={{ width: '84.7%' }}></div>
-                </div>
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Real Success Stories
+            </h2>
+            <p className="text-xl text-cosmic-gold mb-8">
+              See how thousands have transformed their lives through scientific kundali analysis
+            </p>
           </div>
+
+          {/* Success Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {successMetrics.map((metric, index) => (
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-cosmic-gold/30 text-center">
+                <CardContent className="p-6">
+                  <metric.icon className="h-8 w-8 text-cosmic-gold mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
+                  <div className="text-sm text-cosmic-gold">{metric.label}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white/95 backdrop-blur-sm border-cosmic-gold/30 shadow-cosmic-glow">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <Quote className="h-6 w-6 text-cosmic-purple mr-2" />
+                    <div className="flex-1">
+                      <div className="flex items-center mb-2">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 text-cosmic-gold fill-current" />
+                        ))}
+                      </div>
+                      <Badge variant="secondary" className="bg-cosmic-purple/20 text-cosmic-purple">
+                        {testimonial.problem}
+                      </Badge>
+                    </div>
+                  </div>
+                  <p className="text-cosmic-purple-dark mb-4 italic">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-semibold text-cosmic-purple-dark">{testimonial.name}</div>
+                      <div className="text-sm text-cosmic-purple">{testimonial.profession}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Call to Action Section */}
+          <Card className="bg-gradient-to-r from-cosmic-purple to-cosmic-gold text-white border-0 shadow-cosmic-glow">
+            <CardContent className="p-8 text-center">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">
+                    Ready to Transform Your Life?
+                  </h3>
+                  <p className="text-lg mb-6">
+                    Join our next webinar and discover how scientific kundali analysis can unlock your potential
+                  </p>
+                  <div className="flex items-center justify-center space-x-6 text-sm">
+                    <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      <span>Next Session: Aug 19, 2025</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-2" />
+                      <span>6:00-8:00 PM IST</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-4">
+                    <div className="text-3xl font-bold mb-2">Join Webinar</div>
+                    <div className="text-sm opacity-90">Limited Seats Available</div>
+                  </div>
+                  <Button 
+                    size="lg" 
+                    className="bg-white text-cosmic-purple hover:bg-cosmic-gold hover:text-white"
+                    onClick={() => {
+                      window.location.href = "/PaymentPage";
+                    }}
+                  >
+                    Reserve Your Spot <span className="ml-2 text-base font-semibold"> ₹1 /-</span>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

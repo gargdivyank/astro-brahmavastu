@@ -37,7 +37,7 @@ const HeroSection = () => {
                 ONLINE MASTER CLASS
               </h3> */}
               <h1 className="text-[#2C2E4A] text-5xl lg:text-5xl font-bold leading-tight mb-6">
-              Free Live Webinar:  {" "}
+               Live Webinar:  {" "}
                 <span className="relative">
                   {/* <span className="text-cosmic-gold">🪐</span> */}
                   <br />
@@ -51,7 +51,7 @@ const HeroSection = () => {
               <div className="flex items-start gap-3">
                 {/* <div className="w-3 h-3 bg-[#5E3A9D] rounded-full mt-2 flex-shrink-0"></div> */}
                 <p className="text-[#5E3A9D] text-lg lg:text-2xl font-bold">
-                  Join this FREE 2-hour live session
+                  Join this 2-hour live session
                   {" "}and discover how{" "}
                   <span className="text-[#5E3A9D] font-bold">
                     Scientific Kundli decoding
@@ -121,8 +121,8 @@ const HeroSection = () => {
     <div className="flex flex-col">
       <span className="text-[#2C2E4A] text-base font-bold leading-tight">Price</span>
       <span className="text-[#2C2E4A] text-lg font-semibold mt-1 flex flex-row items-center gap-2">
-        <span className="line-through text-red-500 text-base">₹299</span>
-        <span>Free</span>
+        <span className=" text-green-500 text-base">₹1</span>
+        {/* <span>Free</span> */}
       </span>
     </div>
   </div>
@@ -137,13 +137,10 @@ const HeroSection = () => {
                 size="xl"
                 className="w-full lg:w-auto animate-cosmic-glow bg-[#5E3A9D] text-white"
                 onClick={() => {
-                  const target = document.getElementById('registration');
-                  if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  window.location.href = "/PaymentPage";
                 }}
               >
-                JOIN US
+                JOIN US <span className="ml-2 text-base font-semibold"> ₹1 /-</span>
               </Button>
             </div>
 
