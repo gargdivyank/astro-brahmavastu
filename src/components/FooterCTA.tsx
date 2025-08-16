@@ -3,7 +3,7 @@ import React from "react";
 const FooterCTA: React.FC = () => (
   <footer className="
     fixed bottom-0 left-0 w-full 
-    z-50 bg-[#261B3A] 
+    z-50 bg-[#2C2E4A] 
     flex flex-col md:flex-row items-center 
     justify-between px-4 md:px-16 py-4
     shadow-[0_-2px_16px_0_rgba(0,0,0,0.08)]
@@ -24,7 +24,7 @@ const FooterCTA: React.FC = () => (
     <button
       className="
         mt-4 md:mt-0
-        bg-[#FFC82B] hover:bg-[#f1b800] 
+        bg-[#F6C945] hover:bg-[#f1b800] 
         text-[#261B3A] text-lg md:text-xl font-bold 
         px-10 py-3 md:py-2 rounded-lg
         transition-all duration-200 shadow-lg

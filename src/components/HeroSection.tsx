@@ -20,14 +20,14 @@ const HeroSection = () => {
           <div className="flex-1 text-center lg:text-left">
             {/* Brand Logo */}
             <div className="flex items-center justify-center lg:justify-start mb-8">
-                <img
-                  src={logo}
-                  alt="Brahmavastu Logo"
-                  className="w-13 h-12 mr-2"
-                  style={{ objectFit: "contain" }}
-                />
+              <img
+                src={logo}
+                alt="Brahmavastu Logo"
+                className="w-13 h-12 mr-2"
+                style={{ objectFit: "contain" }}
+              />
               <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg p-3 ">
-                <h2 className="text-cosmic-gold font-bold text-lg">@BRAHMAVASTU.G1</h2>
+                <h2 className="text-[#2C2E4A] font-bold text-lg">@BRAHMAVASTU.G1</h2>
               </div>
             </div>
 
@@ -36,12 +36,14 @@ const HeroSection = () => {
               {/* <h3 className="text-cosmic-gold text-xl lg:text-2xl font-semibold mb-2 animate-cosmic-pulse">
                 ONLINE MASTER CLASS
               </h3> */}
-              <h1 className="text-[#2C2E4A] text-5xl lg:text-5xl font-bold leading-tight mb-6">
-               Live Webinar:  {" "}
+              <h1 className="text-[#2C2E4A] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                Live Webinar:{" "}
                 <span className="relative">
                   {/* <span className="text-cosmic-gold">🪐</span> */}
                   <br />
-                  Scientific Kundli Analysis for Life-Changing Results
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                    Scientific Kundli Analysis for Life-Changing Results
+                  </span>
                 </span>
               </h1>
             </div>
@@ -65,7 +67,7 @@ const HeroSection = () => {
                   |{" "}
                   <span className="text-blue-700 font-bold">🧘‍♀️ Health</span>
                 </p>
-                
+
               </div>
               <div className="flex items-start gap-3">
                 {/* <div className="w-3 h-3 bg-[#5E3A9D] rounded-full mt-2 flex-shrink-0"></div>
@@ -76,62 +78,84 @@ const HeroSection = () => {
             </div>
 
             {/* Event Details */}
-            <div className="grid grid-cols-2 gap-5 mb-8">
-  {/* Date Card */}
-  <div className="bg-[#E4D9F5] rounded-2xl p-5 flex items-center gap-4 min-h-[90px]">
-    <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
-      <Calendar className="w-6 h-6 text-[#2C2E4A]" />
-    </div>
-    <div className="flex flex-col">
-      <span className="text-[#2C2E4A] text-base font-bold leading-tight">Date</span>
-      <span className="text-[#2C2E4A] text-lg font-semibold mt-1"> 19th Aug,2025</span>
-    </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-5 mb-8">
+              {/* Date Card */}
+              <div className="min-w-0 bg-[#E4D9F5] rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:gap-4 min-h-[84px]">
+  {/* Icon */}
+  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm mb-2 sm:mb-0 mx-auto sm:mx-0">
+    <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-[#2C2E4A]" />
   </div>
 
-  {/* Time Card */}
-  <div className="bg-[#E4D9F5] rounded-2xl p-5 flex items-center gap-4 min-h-[90px]">
-    <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
-      <Clock className="w-6 h-6 text-[#2C2E4A]" />
-    </div>
-    <div className="flex flex-col">
-      <span className="text-[#2C2E4A] text-base font-bold leading-tight">Time</span>
-      <span className="text-[#2C2E4A] text-lg font-semibold mt-1">6:00 - 8:00 PM</span>
-      
-    </div>
-  </div>
+  {/* Text Content */}
+  <div className="flex flex-col text-center sm:text-left">
+    {/* Heading (hidden on mobile) */}
+    <span className="hidden sm:block text-[#2C2E4A] text-base font-bold leading-tight">
+      Date
+    </span>
 
-  {/* Duration Card */}
-  <div className="bg-[#E4D9F5] rounded-2xl p-5 flex items-center gap-4 min-h-[90px]">
-    <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
-      {/* Use your Hourglass icon here */}
-      <Hourglass className="w-6 h-6 text-[#2C2E4A]" />
-    </div>
-    <div className="flex flex-col">
-      <span className="text-[#2C2E4A] text-base font-bold leading-tight">Platform</span>
-      <span className="text-[#2C2E4A] text-lg font-semibold mt-1">Zoom Meeting</span>
-    </div>
-  </div>
-
-  {/* Live Card */}
-  <div className="bg-[#E4D9F5] rounded-2xl p-5 flex items-center gap-4 min-h-[90px]">
-    <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
-      {/* Use a suitable icon for Price */}
-      <Star className="w-6 h-6 text-[#2C2E4A]" />
-    </div>
-    <div className="flex flex-col">
-      <span className="text-[#2C2E4A] text-base font-bold leading-tight">Price</span>
-      <span className="text-[#2C2E4A] text-lg font-semibold mt-1 flex flex-row items-center gap-2">
-        <span className=" text-green-500 text-base">₹1</span>
-        {/* <span>Free</span> */}
-      </span>
-    </div>
+    {/* Value */}
+    <span className="text-[#2C2E4A] text-sm sm:text-lg font-semibold">
+      19th Aug, 2025
+    </span>
   </div>
 </div>
 
 
 
+
+              {/* Time Card */}
+              <div className="min-w-0 bg-[#E4D9F5] rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:gap-4 min-h-[84px]">
+  {/* Icon */}
+  <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm mb-2 sm:mb-0 mx-auto sm:mx-0">
+    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-[#2C2E4A]" />
+  </div>
+
+  {/* Text Content */}
+  <div className="flex flex-col text-center sm:text-left">
+    {/* Heading (hidden on mobile) */}
+    <span className="hidden sm:block text-[#2C2E4A] text-base font-bold leading-tight">
+      Time
+    </span>
+
+    {/* Value */}
+    <span className="text-[#2C2E4A] text-sm sm:text-lg font-semibold">
+      6:00 - 8:00 PM
+    </span>
+  </div>
+</div>
+
+
+
+              {/* Platform Card - visible only on sm and above */}
+              <div className="hidden sm:flex bg-[#E4D9F5] rounded-2xl p-5 items-center gap-4 min-h-[90px]">
+                <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
+                  <Hourglass className="w-6 h-6 text-[#2C2E4A]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[#2C2E4A] text-base font-bold leading-tight">Platform</span>
+                  <span className="text-[#2C2E4A] text-lg font-semibold mt-1">Zoom Meeting</span>
+                </div>
+              </div>
+
+              {/* Price Card - visible only on sm and above */}
+              <div className="hidden sm:flex bg-[#E4D9F5] rounded-2xl p-5 items-center gap-4 min-h-[90px]">
+                <div className="flex-shrink-0 w-11 h-11 bg-[#fff] rounded-full flex items-center justify-center shadow-sm">
+                  <Star className="w-6 h-6 text-[#2C2E4A]" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[#2C2E4A] text-base font-bold leading-tight">Price</span>
+                  <span className="text-[#2C2E4A] text-lg font-semibold mt-1 flex flex-row items-center gap-2">
+                    <span className="text-green-500 text-base">₹1</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+
+
             {/* CTA Button */}
-            <div className="mb-6">
+            <div className="mb-6 hidden sm:block">
               <Button
                 variant="default"
                 size="xl"
@@ -144,6 +168,7 @@ const HeroSection = () => {
               </Button>
             </div>
 
+
             {/* Registration Note
             <div className="flex items-center justify-center lg:justify-start gap-2 text-cosmic-gold">
               <MapPin className="w-4 h-4" />
@@ -152,38 +177,38 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Expert Photo */}
-        {/* Right Content - Astro Arun Pandit Design */}
-<div className="flex-1 flex flex-col items-center justify-center">
-  {/* Circular Image with Gold Border */}
-  <div className="relative flex flex-col items-center">
-    <div
-      className="w-96 h-96 rounded-full border-8 border-[#CBB26A] bg-[#14192F] flex items-center justify-center overflow-hidden shadow-xl"
-      style={{ boxShadow: "0 0 0 12px #14192F, 0 0 0 18px #CBB26A" }}
-    >
-      <img
-        src={astro}
-        alt="Astro Arun Pandit"
-        className="w-full h-full object-cover rounded-full"
-        style={{ objectPosition: "45% 5%" }}
-      />
-    </div>
-    {/* Text Card Below the Image */}
-    <div
-  className="mt-[-40px] bg-white rounded-xl shadow-lg px-8 py-6 w-[400px] text-center relative z-10 border-2"
-  style={{
-    borderColor: "#F6C945", // soft gold
-    boxShadow: "0 4px 32px 0 #F6C94522, 0 1.5px 16px 0 #2C2E4A11"
-  }}
->
-  <h3 className="text-2xl font-bold text-[#2C2E4A] mb-1 tracking-wide">DR.GUNJAN AGARWAL</h3>
-  <p className="text-[#5E3A9D] text-lg font-medium">A LIFE COACH</p>
-</div>
+          {/* Right Content - Astro Arun Pandit Design */}
+          <div className="flex-1 flex flex-col items-center justify-center">
+            {/* Circular Image with Gold Border */}
+            <div className="relative flex flex-col items-center">
+              <div
+                className="w-96 h-96 rounded-full border-8 border-[#CBB26A] bg-[#14192F] flex items-center justify-center overflow-hidden shadow-xl"
+                style={{ boxShadow: "0 0 0 12px #14192F, 0 0 0 18px #CBB26A" }}
+              >
+                <img
+                  src={astro}
+                  alt="Astro Arun Pandit"
+                  className="w-full h-full object-cover rounded-full"
+                  style={{ objectPosition: "45% 5%" }}
+                />
+              </div>
+              {/* Text Card Below the Image */}
+              <div
+                className="mt-[-40px] bg-white rounded-xl shadow-lg px-8 py-6 w-[400px] text-center relative z-10 border-2"
+                style={{
+                  borderColor: "#F6C945", // soft gold
+                  boxShadow: "0 4px 32px 0 #F6C94522, 0 1.5px 16px 0 #2C2E4A11"
+                }}
+              >
+                <h3 className="text-2xl font-bold text-[#2C2E4A] mb-1 tracking-wide">DR. GUNJAN AGRAWAL</h3>
+                <p className="text-[#5E3A9D] text-lg font-medium">A LIFE COACH</p>
+              </div>
 
 
 
 
-  </div>
-</div>
+            </div>
+          </div>
 
         </div>
       </div>

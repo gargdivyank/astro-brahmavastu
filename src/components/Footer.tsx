@@ -12,7 +12,7 @@ const Footer = () => {
             Don't Miss This <span style={{ color: "#2C2E4A" }}>Life-Changing</span> Opportunity
           </h2>
           <p className="text-xl mb-8" style={{ color: "#5E3A9D" }}>
-            Join Dr. Gunjan Agarwal and thousands of others in discovering the scientific secrets of kundali analysis
+            Join Dr. Gunjan Agrawal and thousands of others in discovering the scientific secrets of kundali analysis
           </p>
         </div>
 
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className="bg-[#F6C94522] rounded-xl p-6 border-2 mb-8" style={{ borderColor: "#F6C945" }}>
           <h3 className="text-lg font-bold mb-2" style={{ color: "#2C2E4A" }}>🗓️ Mark Your Calendar</h3>
           <p className="text-lg font-semibold" style={{ color: "#2C2E4A" }}>
-            <strong>Thursday, July 31st, 2025 | 6:00 PM - 8:00 PM IST</strong>
+            <strong>Tuesday, Aug 19th, 2025 | 6:00 PM - 8:00 PM IST</strong>
           </p>
           <p className="text-sm mt-2" style={{ color: "#2C2E4A" }}>
             Zoom link will be sent to your registered email 1 hour before the session

@@ -38,12 +38,12 @@ const faqs = [
       "The session will be about 90–120 minutes. It’s designed to be practical, simple and jargon-free."
   },
   {
-    question: "Who is Dr. Gunjan Agarwal? Why should I trust her?",
+    question: "Who is Dr. Gunjan Agrawal? Why should I trust her?",
     answer:
-      "Dr. Gunjan Agarwal is India’s most trusted Life Coach, with 10+ years of legacy and over 5 lakh lives impacted."
+      "Dr. Gunjan Agrawal is India’s most trusted Life Coach, with 10+ years of legacy and over 5 lakh lives impacted."
   },
   {
-    question: "I’ve taken reports from Dr. Gunjan Agarwal before. Is this still useful?",
+    question: "I’ve taken reports from Dr. Gunjan Agrawal before. Is this still useful?",
     answer:
       "Yes! This session is about learning how to use your Kundli in daily life, not just reports or predictions."
   },
@@ -65,7 +65,7 @@ const FaqSection: React.FC = () => {
     <section
       className="w-full min-h-[90vh] py-16 px-4 flex flex-col items-center justify-center"
       style={{
-        background: "linear-gradient(to bottom, #1A0823 0%, #50046E 100%)"
+        background: "linear-gradient(to bottom, #2C2E4A 100%, #5E3A9D 0%)"
       }}
     >
       <h3 className="text-3xl md:text-4xl font-bold text-white text-center mb-10 font-serif">
@@ -75,7 +75,7 @@ const FaqSection: React.FC = () => {
         {faqs.map((faq, idx) => (
           <div
             key={faq.question}
-            className="rounded-md bg-[#42195c] hover:bg-[#5d2680] transition-all duration-200"
+            className="rounded-md bg-[#5E3A9D] hover:bg-[#5d2680] transition-all duration-200"
           >
             <button
               onClick={() => handleToggle(idx)}
